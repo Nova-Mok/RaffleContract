@@ -18,12 +18,12 @@ contract Lottery is VRFConsumerBaseV2 {
 
     constructor()
         VRFConsumerBaseV2(
-            0x6168499c0cFfCaCD319c818142124B7A15E857ab, // VRF coordinator
-            0x01BE23585060835E02B77ef475b0Cc51aA1e0709 // LINK token address
+            0x6168499c0cFfCaCD319c818142124B7A15E857ab, 
+            0x01BE23585060835E02B77ef475b0Cc51aA1e0709 
         ) 
         {
             keyHash = 0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc;
-            fee = 0.25 * 10 ** 18; // 0.25 LINK
+            fee = 0.25 * 10 ** 18; 
 
             owner = msg.sender;
             lotteryId = 1;
