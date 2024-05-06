@@ -12,8 +12,8 @@ contract Lottery is VRFConsumerBaseV2 {
     uint public lotteryId;
     mapping (uint => address payable) public lotteryHistory;
 
-    bytes32 internal keyHash; // identifies which chainlink oracale to use
-    uint internal fee; // fee to get random number
+    bytes32 internal keyHash; 
+    uint internal fee; 
     uint public randomResult;
 
     constructor()
@@ -45,8 +45,6 @@ contract Lottery is VRFConsumerBaseV2 {
 
     function getBalance() public view returns (uint) {
         return address(this).balance;
-
-
     }
 
     function getPlayers() public view returns (address payable[] memory) {
@@ -58,7 +56,6 @@ contract Lottery is VRFConsumerBaseV2 {
         require(msg.value > 0.1 ether);
 
 
-        // address of player entering lottery
         players.push(payable(msg.sender));
     }
 
@@ -74,7 +71,6 @@ contract Lottery is VRFConsumerBaseV2 {
         lotteryHistory[lotteryId] = players[index];
         lotteryId++;
 
-        // reset the state of contract
 
         players = new address payable[](0);
 
